@@ -1,0 +1,4 @@
+core.externalId,core.name,core.description,core.businessDescription,core.businessName,core.reference
+swagger~petstore~-~openapi~3.0~pet,pet,Everything about your Pets,,,
+swagger~petstore~-~openapi~3.0~store,store,Access to Petstore orders,,,
+swagger~petstore~-~openapi~3.0~user,user,Operations about user,,,

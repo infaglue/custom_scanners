@@ -1,0 +1,713 @@
+{
+  "packageName": "custom.openapi",
+  "packageLabel": "custom.openapi",
+  "version": 1,
+  "packageDescription": "Open API Specification Model",
+  "deprecated": false,
+  "requiredPackages": [],
+  "classes": [
+	{
+		"name": "Info",
+		"label": "Information",
+		"description": "Information about the API being documented by OpenAPI",
+		"isFirstClass": true,
+		"isAbstract": false,
+		"superClasses": [
+			"core.DataSet"
+		],
+		"deprecated": false,
+		"indexType": "FULL",
+		"appendOnly": true
+	},
+	{
+		"name": "Tag",
+		"label": "Tag",
+		"description": "The TAG for the API that helps organize it in Swagger",
+		"isFirstClass": true,
+		"isAbstract": false,
+		"superClasses": [
+			"core.DataSet"
+		],
+		"deprecated": false,
+		"indexType": "FULL",
+		"appendOnly": true
+	},
+	{
+		"name": "Endpoint",
+		"label": "Endpoint",
+		"description": "The endpoint and it's path.",
+		"isFirstClass": true,
+		"isAbstract": false,
+		"superClasses": [
+			"core.DataSet"
+		],
+		"deprecated": false,
+		"indexType": "FULL",
+		"appendOnly": true
+	},
+	{
+		"name": "Method",
+		"label": "Method",
+		"description": "The methods (GET, PUT, etc) that the endpoint supports",
+		"isFirstClass": true,
+		"isAbstract": false,
+		"superClasses": [
+			"core.DataSet"
+		],
+		"deprecated": false,
+		"indexType": "FULL",
+		"appendOnly": true
+	},
+	{
+		"name": "ParameterGroup",
+		"label": "Parameter Group",
+		"description": "",
+		"isFirstClass": true,
+		"isAbstract": false,
+		"superClasses": [
+			"core.DataSet"
+		],
+		"deprecated": false,
+		"indexType": "FULL",
+		"appendOnly": true
+	},
+	{
+		"name": "Parameter",
+		"label": "Parameter",
+		"description": "",
+		"isFirstClass": true,
+		"isAbstract": false,
+		"superClasses": [
+			"core.DataElement"
+		],
+		"deprecated": false,
+		"indexType": "FULL",
+		"appendOnly": true
+	},
+	{
+		"name": "ResponseGroup",
+		"label": "Response Group",
+		"description": "",
+		"isFirstClass": true,
+		"isAbstract": false,
+		"superClasses": [
+			"core.DataSet"
+		],
+		"deprecated": false,
+		"indexType": "FULL",
+		"appendOnly": true
+	},
+	{
+		"name": "Response",
+		"label": "Response",
+		"description": "",
+		"isFirstClass": true,
+		"isAbstract": false,
+		"superClasses": [
+			"core.DataElement"
+		],
+		"deprecated": false,
+		"indexType": "FULL",
+		"appendOnly": true
+	},
+	{
+		"name": "ResponseField",
+		"label": "Response Field",
+		"description": "",
+		"isFirstClass": true,
+		"isAbstract": false,
+		"superClasses": [
+			"core.DataElement"
+		],
+		"deprecated": false,
+		"indexType": "FULL",
+		"appendOnly": true
+	}
+  ],
+  "attributes": [
+    {
+      "name": "Version",
+      "label": "Version",
+      "dataType": "core.String",
+      "description": "",
+      "multivalued": false,
+      "deprecated": false,
+      "derived": false,
+      "data": false,
+      "isCustom": false,
+      "defaultValues": [
+      ],
+      "isSystem": false,
+      "embedded": false,
+      "searchConfiguration": {
+        "attributeType": "SEARCHABLE",
+        "fieldMappingTemplate": "",
+        "suggestable": false,
+        "aggregatable": false,
+        "sortable": false
+      }
+    },
+	{
+      "name": "termsOfService",
+      "label": "Terms of Service",
+      "dataType": "core.URL",
+      "description": "",
+      "multivalued": false,
+      "deprecated": false,
+      "derived": false,
+      "data": false,
+      "isCustom": false,
+      "defaultValues": [
+      ],
+      "isSystem": false,
+      "embedded": false,
+      "searchConfiguration": {
+        "attributeType": "SEARCHABLE",
+        "fieldMappingTemplate": "",
+        "suggestable": false,
+        "aggregatable": false,
+        "sortable": false
+      }
+    },
+	{
+      "name": "ContactName",
+      "label": "Contact Name",
+      "dataType": "core.String",
+      "description": "",
+      "multivalued": false,
+      "deprecated": false,
+      "derived": false,
+      "data": false,
+      "isCustom": false,
+      "defaultValues": [
+      ],
+      "isSystem": false,
+      "embedded": false,
+      "searchConfiguration": {
+        "attributeType": "SEARCHABLE",
+        "fieldMappingTemplate": "",
+        "suggestable": false,
+        "aggregatable": false,
+        "sortable": false
+      }
+    },
+	{
+      "name": "ContactURL",
+      "label": "Contact URL",
+      "dataType": "core.URL",
+      "description": "",
+      "multivalued": false,
+      "deprecated": false,
+      "derived": false,
+      "data": false,
+      "isCustom": false,
+      "defaultValues": [
+      ],
+      "isSystem": false,
+      "embedded": false,
+      "searchConfiguration": {
+        "attributeType": "SEARCHABLE",
+        "fieldMappingTemplate": "",
+        "suggestable": false,
+        "aggregatable": false,
+        "sortable": false
+      }
+    },
+	{
+      "name": "ContactEmail",
+      "label": "Contact Email",
+      "dataType": "core.String",
+      "description": "",
+      "multivalued": false,
+      "deprecated": false,
+      "derived": false,
+      "data": false,
+      "isCustom": false,
+      "defaultValues": [
+      ],
+      "isSystem": false,
+      "embedded": false,
+      "searchConfiguration": {
+        "attributeType": "SEARCHABLE",
+        "fieldMappingTemplate": "",
+        "suggestable": false,
+        "aggregatable": false,
+        "sortable": false
+      }
+    },
+	{
+      "name": "LicenseName",
+      "label": "LicenseName",
+      "dataType": "core.String",
+      "description": "",
+      "multivalued": false,
+      "deprecated": false,
+      "derived": false,
+      "data": false,
+      "isCustom": false,
+      "defaultValues": [
+      ],
+      "isSystem": false,
+      "embedded": false,
+      "searchConfiguration": {
+        "attributeType": "SEARCHABLE",
+        "fieldMappingTemplate": "",
+        "suggestable": false,
+        "aggregatable": false,
+        "sortable": false
+      }
+    },
+	{
+      "name": "LicenseURL",
+      "label": "License URL",
+      "dataType": "core.URL",
+      "description": "",
+      "multivalued": false,
+      "deprecated": false,
+      "derived": false,
+      "data": false,
+      "isCustom": false,
+      "defaultValues": [
+      ],
+      "isSystem": false,
+      "embedded": false,
+      "searchConfiguration": {
+        "attributeType": "SEARCHABLE",
+        "fieldMappingTemplate": "",
+        "suggestable": false,
+        "aggregatable": false,
+        "sortable": false
+      }
+    },
+	{
+      "name": "externalDocsDescription",
+      "label": "External Docs Description",
+      "dataType": "core.String",
+      "description": "",
+      "multivalued": false,
+      "deprecated": false,
+      "derived": false,
+      "data": false,
+      "isCustom": false,
+      "defaultValues": [
+      ],
+      "isSystem": false,
+      "embedded": false,
+      "searchConfiguration": {
+        "attributeType": "SEARCHABLE",
+        "fieldMappingTemplate": "",
+        "suggestable": false,
+        "aggregatable": false,
+        "sortable": false
+      }
+    },
+	{
+      "name": "externalDocsURL",
+      "label": "External Docs URL",
+      "dataType": "core.URL",
+      "description": "",
+      "multivalued": false,
+      "deprecated": false,
+      "derived": false,
+      "data": false,
+      "isCustom": false,
+      "defaultValues": [
+      ],
+      "isSystem": false,
+      "embedded": false,
+      "searchConfiguration": {
+        "attributeType": "SEARCHABLE",
+        "fieldMappingTemplate": "",
+        "suggestable": false,
+        "aggregatable": false,
+        "sortable": false
+      }
+    },
+	{
+      "name": "Type",
+      "label": "Type",
+      "dataType": "core.String",
+      "description": "",
+      "multivalued": false,
+      "deprecated": false,
+      "derived": false,
+      "data": false,
+      "isCustom": false,
+      "defaultValues": [
+      ],
+      "isSystem": false,
+      "embedded": false,
+      "searchConfiguration": {
+        "attributeType": "SEARCHABLE",
+        "fieldMappingTemplate": "",
+        "suggestable": false,
+        "aggregatable": false,
+        "sortable": false
+      }
+    },
+	{
+      "name": "Format",
+      "label": "Format",
+      "dataType": "core.String",
+      "description": "",
+      "multivalued": false,
+      "deprecated": false,
+      "derived": false,
+      "data": false,
+      "isCustom": false,
+      "defaultValues": [
+      ],
+      "isSystem": false,
+      "embedded": false,
+      "searchConfiguration": {
+        "attributeType": "SEARCHABLE",
+        "fieldMappingTemplate": "",
+        "suggestable": false,
+        "aggregatable": false,
+        "sortable": false
+      }
+    },
+	{
+      "name": "Example",
+      "label": "Example",
+      "dataType": "core.String",
+      "description": "",
+      "multivalued": false,
+      "deprecated": false,
+      "derived": false,
+      "data": false,
+      "isCustom": false,
+      "defaultValues": [
+      ],
+      "isSystem": false,
+      "embedded": false,
+      "searchConfiguration": {
+        "attributeType": "SEARCHABLE",
+        "fieldMappingTemplate": "",
+        "suggestable": false,
+        "aggregatable": false,
+        "sortable": false
+      }
+    },
+	{
+      "name": "Default",
+      "label": "Default",
+      "dataType": "core.String",
+      "description": "",
+      "multivalued": false,
+      "deprecated": false,
+      "derived": false,
+      "data": false,
+      "isCustom": false,
+      "defaultValues": [
+      ],
+      "isSystem": false,
+      "embedded": false,
+      "searchConfiguration": {
+        "attributeType": "SEARCHABLE",
+        "fieldMappingTemplate": "",
+        "suggestable": false,
+        "aggregatable": false,
+        "sortable": false
+      }
+    }
+	
+  ],
+  "associations": [
+	{
+		"name": "InfoToTag",
+		"label": "Info to Tag",
+		"description": "",
+		"fromClass": "custom.openapi.Info",
+		"toClass": "custom.openapi.Tag",
+		"fromLabel": "Infomation",
+		"toLabel": "Tag",
+		"associationKinds": [
+			"core.ParentChild"
+		],
+		"deprecated": false,
+		"unidirectional": false,
+		"aggregate": false
+	},
+	{
+		"name": "TagToEndpoint",
+		"label": "Tag to Endpoint",
+		"description": "",
+		"fromClass": "custom.openapi.Tag",
+		"toClass": "custom.openapi.Endpoint",
+		"fromLabel": "Tag",
+		"toLabel": "Endpoint",
+		"associationKinds": [
+			"core.ParentChild"
+		],
+		"deprecated": false,
+		"unidirectional": false,
+		"aggregate": false
+	},
+	{
+		"name": "EndpointToMethod",
+		"label": "Endpoint to Method",
+		"description": "",
+		"fromClass": "custom.openapi.Endpoint",
+		"toClass": "custom.openapi.Method",
+		"fromLabel": "Endpoint",
+		"toLabel": "Method",
+		"associationKinds": [
+			"core.ParentChild"
+		],
+		"deprecated": false,
+		"unidirectional": false,
+		"aggregate": false
+	},
+	{
+		"name": "MethodToParameterGroup",
+		"label": "Method to Parameter Group",
+		"description": "",
+		"fromClass": "custom.openapi.Method",
+		"toClass": "custom.openapi.ParameterGroup",
+		"fromLabel": "Method",
+		"toLabel": "Parameter Group",
+		"associationKinds": [
+			"core.ParentChild"
+		],
+		"deprecated": false,
+		"unidirectional": false,
+		"aggregate": false
+	},
+	{
+		"name": "MethodToResponseGroup",
+		"label": "Method to Response Group",
+		"description": "",
+		"fromClass": "custom.openapi.Method",
+		"toClass": "custom.openapi.ResponseGroup",
+		"fromLabel": "Method",
+		"toLabel": "Response Group",
+		"associationKinds": [
+			"core.ParentChild"
+		],
+		"deprecated": false,
+		"unidirectional": false,
+		"aggregate": false
+	},
+	{
+		"name": "ResponseGroupToResponse",
+		"label": "Response Group to Response",
+		"description": "",
+		"fromClass": "custom.openapi.ResponseGroup",
+		"toClass": "custom.openapi.Response",
+		"fromLabel": "Response Group",
+		"toLabel": "Response",
+		"associationKinds": [
+			"core.ParentChild"
+		],
+		"deprecated": false,
+		"unidirectional": false,
+		"aggregate": false
+	},
+	{
+		"name": "ResponseToResponseField",
+		"label": "Response to Response Field",
+		"description": "",
+		"fromClass": "custom.openapi.Response",
+		"toClass": "custom.openapi.ResponseField",
+		"fromLabel": "Response",
+		"toLabel": "Response Field",
+		"associationKinds": [
+			"core.ParentChild"
+		],
+		"deprecated": false,
+		"unidirectional": false,
+		"aggregate": false
+	},
+	{
+		"name": "ParameterGroupToParameter",
+		"label": "Parameter Group To Parameter",
+		"description": "",
+		"fromClass": "custom.openapi.ParameterGroup",
+		"toClass": "custom.openapi.Parameter",
+		"fromLabel": "ParameterGroup",
+		"toLabel": "Parameter",
+		"associationKinds": [
+			"core.ParentChild"
+		],
+		"deprecated": false,
+		"unidirectional": false,
+		"aggregate": false
+	}
+  ],
+  "associationKinds": [
+  ],
+  "dataTypes": [
+  ],
+  "classAttributes": [
+	{
+		"className": "custom.openapi.Info",
+		"attributeName": "custom.openapi.Version",
+		"isRequired": false,
+		"isCuratable": false,
+		"deprecated": false,
+		"followers": [],
+		"isHidden": false,
+		"cdc": false
+	},
+	{
+		"className": "custom.openapi.Info",
+		"attributeName": "custom.openapi.termsOfService",
+		"isRequired": false,
+		"isCuratable": false,
+		"deprecated": false,
+		"followers": [],
+		"isHidden": false,
+		"cdc": false
+	},
+	{
+		"className": "custom.openapi.Info",
+		"attributeName": "custom.openapi.ContactName",
+		"isRequired": false,
+		"isCuratable": false,
+		"deprecated": false,
+		"followers": [],
+		"isHidden": false,
+		"cdc": false
+	},
+	{
+		"className": "custom.openapi.Info",
+		"attributeName": "custom.openapi.ContactEmail",
+		"isRequired": false,
+		"isCuratable": false,
+		"deprecated": false,
+		"followers": [],
+		"isHidden": false,
+		"cdc": false
+	},
+	{
+		"className": "custom.openapi.Info",
+		"attributeName": "custom.openapi.ContactURL",
+		"isRequired": false,
+		"isCuratable": false,
+		"deprecated": false,
+		"followers": [],
+		"isHidden": false,
+		"cdc": false
+	},
+	{
+		"className": "custom.openapi.Info",
+		"attributeName": "custom.openapi.LicenseName",
+		"isRequired": false,
+		"isCuratable": false,
+		"deprecated": false,
+		"followers": [],
+		"isHidden": false,
+		"cdc": false
+	},
+	{
+		"className": "custom.openapi.Info",
+		"attributeName": "custom.openapi.LicenseURL",
+		"isRequired": false,
+		"isCuratable": false,
+		"deprecated": false,
+		"followers": [],
+		"isHidden": false,
+		"cdc": false
+	},
+	{
+		"className": "custom.openapi.Info",
+		"attributeName": "custom.openapi.externalDocsDescription",
+		"isRequired": false,
+		"isCuratable": false,
+		"deprecated": false,
+		"followers": [],
+		"isHidden": false,
+		"cdc": false
+	},
+	{
+		"className": "custom.openapi.Info",
+		"attributeName": "custom.openapi.externalDocsURL",
+		"isRequired": false,
+		"isCuratable": false,
+		"deprecated": false,
+		"followers": [],
+		"isHidden": false,
+		"cdc": false
+	},
+	{
+		"className": "custom.openapi.Tag",
+		"attributeName": "custom.openapi.externalDocsDescription",
+		"isRequired": false,
+		"isCuratable": false,
+		"deprecated": false,
+		"followers": [],
+		"isHidden": false,
+		"cdc": false
+	},
+	{
+		"className": "custom.openapi.Tag",
+		"attributeName": "custom.openapi.externalDocsURL",
+		"isRequired": false,
+		"isCuratable": false,
+		"deprecated": false,
+		"followers": [],
+		"isHidden": false,
+		"cdc": false
+	},
+	{
+		"className": "custom.openapi.ResponseField",
+		"attributeName": "custom.openapi.Type",
+		"isRequired": false,
+		"isCuratable": false,
+		"deprecated": false,
+		"followers": [],
+		"isHidden": false,
+		"cdc": false
+	},
+	{
+		"className": "custom.openapi.ResponseField",
+		"attributeName": "custom.openapi.Format",
+		"isRequired": false,
+		"isCuratable": false,
+		"deprecated": false,
+		"followers": [],
+		"isHidden": false,
+		"cdc": false
+	},
+	{
+		"className": "custom.openapi.ResponseField",
+		"attributeName": "custom.openapi.Example",
+		"isRequired": false,
+		"isCuratable": false,
+		"deprecated": false,
+		"followers": [],
+		"isHidden": false,
+		"cdc": false
+	},
+	{
+		"className": "custom.openapi.ResponseField",
+		"attributeName": "custom.openapi.Default",
+		"isRequired": false,
+		"isCuratable": false,
+		"deprecated": false,
+		"followers": [],
+		"isHidden": false,
+		"cdc": false
+	}		
+			
+  ],
+  "associationAttributes": [
+    
+  ],
+  "associationKindAttributes": [
+    
+  ],
+  "classUserKeys": [
+    
+  ],
+  "classPartitionKeys": [
+    
+  ],
+  "associationPartitionKeys": [
+   
+  ],
+  "references": [
+    
+  ]
+}

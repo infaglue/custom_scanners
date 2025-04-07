@@ -1,0 +1,13 @@
+core.externalId,core.name,core.description,core.businessDescription,core.businessName,core.reference
+swagger~petstore~-~openapi~3.0~pet~~pet~findByStatus~get~(parameters),(parameters),The parameters used by this API endpoint,,,
+swagger~petstore~-~openapi~3.0~pet~~pet~findByTags~get~(parameters),(parameters),The parameters used by this API endpoint,,,
+swagger~petstore~-~openapi~3.0~pet~~pet~{petId}~get~(parameters),(parameters),The parameters used by this API endpoint,,,
+swagger~petstore~-~openapi~3.0~pet~~pet~{petId}~post~(parameters),(parameters),The parameters used by this API endpoint,,,
+swagger~petstore~-~openapi~3.0~pet~~pet~{petId}~delete~(parameters),(parameters),The parameters used by this API endpoint,,,
+swagger~petstore~-~openapi~3.0~pet~~pet~{petId}~uploadImage~post~(parameters),(parameters),The parameters used by this API endpoint,,,
+swagger~petstore~-~openapi~3.0~store~~store~order~{orderId}~get~(parameters),(parameters),The parameters used by this API endpoint,,,
+swagger~petstore~-~openapi~3.0~store~~store~order~{orderId}~delete~(parameters),(parameters),The parameters used by this API endpoint,,,
+swagger~petstore~-~openapi~3.0~user~~user~login~get~(parameters),(parameters),The parameters used by this API endpoint,,,
+swagger~petstore~-~openapi~3.0~user~~user~{username}~get~(parameters),(parameters),The parameters used by this API endpoint,,,
+swagger~petstore~-~openapi~3.0~user~~user~{username}~put~(parameters),(parameters),The parameters used by this API endpoint,,,
+swagger~petstore~-~openapi~3.0~user~~user~{username}~delete~(parameters),(parameters),The parameters used by this API endpoint,,,
