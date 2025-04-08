@@ -1,0 +1,507 @@
+{
+   "packageName":"arcgis.rest.customV4",
+   "packageDescription":"ArcGIS model for rest objects",
+   "packageLabel":"ArcGIS - Scanner",
+   "deprecated":false,
+   "subsystem":false,
+   "cdc":true,
+   "classes":[
+      {
+         "name":"Field",
+         "label":"Field",
+         "externalLabel":"Field",
+         "description":"Field desc here...",
+         "isFirstClass":true,
+         "superClasses":[
+            "core.DataElement",
+            "core.IClass"
+         ],
+         "deprecated":false,
+         "isAbstract":false,
+         "cdc":true,
+         "indexType":"FULL",
+         "appendOnly":false,
+         "extensions":[
+
+         ],
+         "softDeleted":false,
+         "system":false,
+         "attributeInheritance":[
+
+         ]
+      },
+      {
+         "name":"Server",
+         "label":"Server",
+         "description":"the server that contains the service definitions",
+         "isFirstClass":true,
+         "superClasses":[
+            "core.IClassTechnical",
+            "core.IClass"
+         ],
+         "deprecated":false,
+         "isAbstract":false,
+         "cdc":true,
+         "indexType":"FULL",
+         "appendOnly":false,
+         "extensions":[
+
+         ],
+         "softDeleted":false,
+         "system":false,
+         "attributeInheritance":[
+
+         ]
+      },
+      {
+         "name":"Service",
+         "label":"Service",
+         "description":"A service within ArcGIS.  will contain layers/fields",
+         "isFirstClass":true,
+         "superClasses":[
+            "core.IClassTechnical",
+            "core.IClass"
+         ],
+         "deprecated":false,
+         "isAbstract":false,
+         "cdc":true,
+         "indexType":"FULL",
+         "appendOnly":false,
+         "extensions":[
+
+         ],
+         "softDeleted":false,
+         "system":false,
+         "attributeInheritance":[
+
+         ]
+      },
+      {
+         "name":"Layer",
+         "label":"Layer",
+         "externalLabel":"Layer",
+         "description":"Layer desc here...",
+         "isFirstClass":true,
+         "superClasses":[
+            "core.DataSet",
+            "core.IClass"
+         ],
+         "deprecated":false,
+         "isAbstract":false,
+         "cdc":true,
+         "indexType":"FULL",
+         "appendOnly":false,
+         "extensions":[
+
+         ],
+         "softDeleted":false,
+         "system":false,
+         "attributeInheritance":[
+
+         ]
+      },
+      {
+         "name":"Folder",
+         "label":"Folder",
+         "description":"Element used for organizing and storing all services",
+         "isFirstClass":true,
+         "superClasses":[
+            "core.IClass",
+            "core.IClassTechnical"
+         ],
+         "deprecated":false,
+         "isAbstract":false,
+         "cdc":true,
+         "indexType":"FULL",
+         "appendOnly":false,
+         "extensions":[
+
+         ],
+         "softDeleted":false,
+         "system":false,
+         "attributeInheritance":[
+
+         ]
+      }
+   ],
+   "requiredPackages":[
+      "core"
+   ],
+   "associations":[
+      {
+         "name":"LayerContainsField",
+         "label":"LayerContainsField",
+         "fromClass":"arcgis.rest.customV4.Layer",
+         "toClass":"arcgis.rest.customV4.Field",
+         "fromLabel":"Layer",
+         "toLabel":"Service",
+         "associationKinds":[
+            "core.ParentChild",
+            "core.IAssociation"
+         ],
+         "deprecated":false,
+         "projections":false,
+         "cdc":true,
+         "unidirectional":false,
+         "aggregate":false,
+         "description":"layter contains 1 or more fields",
+         "customizable":false,
+         "custom":false,
+         "deleted":false
+      },
+      {
+         "name":"ServiceContainsLayer",
+         "label":"ServiceContainsLayer",
+         "fromClass":"arcgis.rest.customV4.Service",
+         "toClass":"arcgis.rest.customV4.Layer",
+         "fromLabel":"Layer",
+         "toLabel":"Service",
+         "associationKinds":[
+            "core.ParentChild",
+            "core.IAssociation"
+         ],
+         "deprecated":false,
+         "projections":false,
+         "cdc":true,
+         "unidirectional":false,
+         "aggregate":false,
+         "description":"layers are contained within a service",
+         "customizable":false,
+         "custom":false,
+         "deleted":false
+      },
+      {
+         "name":"ServerContainsService",
+         "label":"ServerContainsService",
+         "fromClass":"arcgis.rest.customV4.Server",
+         "toClass":"arcgis.rest.customV4.Service",
+         "fromLabel":"Server",
+         "toLabel":"Service",
+         "associationKinds":[
+            "core.ParentChild",
+            "core.IAssociation"
+         ],
+         "deprecated":false,
+         "projections":false,
+         "cdc":true,
+         "unidirectional":false,
+         "aggregate":false,
+         "description":"Server provides many services",
+         "customizable":false,
+         "custom":false,
+         "deleted":false
+      },
+      {
+         "name":"FolderToService",
+         "label":"Folder to Service",
+         "fromClass":"arcgis.rest.customV4.Folder",
+         "toClass":"arcgis.rest.customV4.Service",
+         "fromLabel":"Folder",
+         "toLabel":"Service",
+         "associationKinds":[
+            "core.ParentChild",
+            "core.IAssociation"
+         ],
+         "deprecated":false,
+         "projections":false,
+         "cdc":true,
+         "unidirectional":false,
+         "aggregate":false,
+         "description":"",
+         "customizable":false,
+         "custom":false,
+         "deleted":false
+      },
+      {
+         "name":"ServerToFolder",
+         "label":"ServerToFolder",
+         "fromClass":"arcgis.rest.customV4.Server",
+         "toClass":"arcgis.rest.customV4.Folder",
+         "fromLabel":"Server",
+         "toLabel":"Folder",
+         "associationKinds":[
+            "core.ParentChild",
+            "core.IAssociation"
+         ],
+         "deprecated":false,
+         "projections":false,
+         "cdc":true,
+         "unidirectional":false,
+         "aggregate":false,
+         "description":"",
+         "customizable":false,
+         "custom":false,
+         "deleted":false
+      }
+   ],
+   "attributes":[
+      {
+         "name":"Type",
+         "label":"Type",
+         "dataType":"core.String",
+         "description":"Datatype for Field or Type of Service",
+         "multivalued":false,
+         "deprecated":false,
+         "derived":false,
+         "data":false,
+         "defaultValues":[
+
+         ],
+         "custom":false,
+         "isSystem":false,
+         "embedded":false,
+         "reference":"",
+         "referencedAttributes":[
+
+         ],
+         "searchConfiguration":{
+            "suggestable":false,
+            "aggregatable":false,
+            "sortable":false,
+            "fuzzy":true,
+            "attributeType":"SEARCHABLE"
+         },
+         "projectionExpressions":[
+
+         ],
+         "deleted":false,
+         "customizations":[
+            "NONE"
+         ]
+      },
+      {
+         "name":"HasVersionedData",
+         "label":"Has Versioned Data",
+         "dataType":"core.Boolean",
+         "description":"Has Versioned Data",
+         "multivalued":false,
+         "deprecated":false,
+         "derived":false,
+         "data":false,
+         "defaultValues":[
+            "false"
+         ],
+         "custom":false,
+         "isSystem":false,
+         "embedded":false,
+         "reference":"",
+         "referencedAttributes":[
+         ],
+         "searchConfiguration":{
+         },
+         "projectionExpressions":[
+         ],
+         "deleted":false,
+         "customizations":[
+            "NONE"
+         ]
+      },
+      {
+         "name":"MaxRecordCount",
+         "label":"Max Record Count",
+         "dataType":"core.Integer",
+         "description":"Max Record Count",
+         "multivalued":false,
+         "deprecated":false,
+         "derived":false,
+         "data":false,
+         "defaultValues":[
+         ],
+         "custom":false,
+         "isSystem":false,
+         "embedded":false,
+         "reference":"",
+         "referencedAttributes":[
+         ],
+         "searchConfiguration":{
+         },
+         "projectionExpressions":[
+         ],
+         "deleted":false,
+         "customizations":[
+            "NONE"
+         ]
+      },
+      {
+         "name":"Copyright",
+         "label":"Copyright",
+         "dataType":"core.RichText",
+         "description":"Copyright Text",
+         "multivalued":false,
+         "deprecated":false,
+         "derived":false,
+         "data":false,
+         "defaultValues":[
+         ],
+         "custom":false,
+         "isSystem":false,
+         "embedded":false,
+         "reference":"",
+         "referencedAttributes":[
+         ],
+         "searchConfiguration":{
+         },
+         "projectionExpressions":[
+         ],
+         "deleted":false,
+         "customizations":[
+            "NONE"
+         ]
+      }
+   ],
+   "classAttributes":[
+      {
+         "className":"arcgis.rest.customV4.Field",
+         "name":"Type",
+         "attributeName":"arcgis.rest.customV4.Type",
+         "isRequired":false,
+         "isCuratable":false,
+         "deprecated":false,
+         "followers":[
+
+         ],
+         "isHidden":false,
+         "cdc":false,
+         "custom":false,
+         "gatherStats":false,
+         "materialized":false,
+         "conditions":[
+
+         ],
+         "deleted":false
+      },
+       {
+         "className":"arcgis.rest.customV4.Service",
+         "name":"HasVersionedData",
+         "attributeName":"arcgis.rest.customV4.HasVersionedData",
+         "isRequired":false,
+         "isCuratable":false,
+         "deprecated":false,
+         "followers":[
+
+         ],
+         "isHidden":false,
+         "cdc":false,
+         "custom":false,
+         "gatherStats":false,
+         "materialized":false,
+         "conditions":[
+
+         ],
+         "deleted":false
+      },
+       {
+         "className":"arcgis.rest.customV4.Service",
+         "name":"MaxRecordCount",
+         "attributeName":"arcgis.rest.customV4.MaxRecordCount",
+         "isRequired":false,
+         "isCuratable":false,
+         "deprecated":false,
+         "followers":[
+
+         ],
+         "isHidden":false,
+         "cdc":false,
+         "custom":false,
+         "gatherStats":false,
+         "materialized":false,
+         "conditions":[
+
+         ],
+         "deleted":false
+      },
+       {
+         "className":"arcgis.rest.customV4.Layer",
+         "name":"MaxRecordCount",
+         "attributeName":"arcgis.rest.customV4.MaxRecordCount",
+         "isRequired":false,
+         "isCuratable":false,
+         "deprecated":false,
+         "followers":[
+
+         ],
+         "isHidden":false,
+         "cdc":false,
+         "custom":false,
+         "gatherStats":false,
+         "materialized":false,
+         "conditions":[
+
+         ],
+         "deleted":false
+      },
+       {
+         "className":"arcgis.rest.customV4.Service",
+         "name":"Copyright",
+         "attributeName":"arcgis.rest.customV4.Copyright",
+         "isRequired":false,
+         "isCuratable":false,
+         "deprecated":false,
+         "followers":[
+
+         ],
+         "isHidden":false,
+         "cdc":false,
+         "custom":false,
+         "gatherStats":false,
+         "materialized":false,
+         "conditions":[
+
+         ],
+         "deleted":false
+      },
+       {
+         "className":"arcgis.rest.customV4.Layer",
+         "name":"Copyright",
+         "attributeName":"arcgis.rest.customV4.Copyright",
+         "isRequired":false,
+         "isCuratable":false,
+         "deprecated":false,
+         "followers":[
+
+         ],
+         "isHidden":false,
+         "cdc":false,
+         "custom":false,
+         "gatherStats":false,
+         "materialized":false,
+         "conditions":[
+
+         ],
+         "deleted":false
+      }
+   ],
+   "dataTypes":[
+
+   ],
+   "associationKinds":[
+
+   ],
+   "associationAttributes":[
+
+   ],
+   "references":[
+
+   ],
+   "associationKindAttributes":[
+
+   ],
+   "classUserKeys":[
+
+   ],
+   "classPartitionKeys":[
+
+   ],
+   "associationPartitionKeys":[
+
+   ],
+   "namespaces":[
+
+   ],
+   "packageNamespaces":[
+      "default"
+   ],
+   "identity":"",
+   "version":2,
+   "modifiedBy":""
+}
