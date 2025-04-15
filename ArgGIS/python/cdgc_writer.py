@@ -79,12 +79,24 @@ class CDGCWriter:
 
         self.fLinks.close()
 
-        self.create_output_file(self.folderList, f"{self.FOLDER_CLASS}.csv")
-        self.create_output_file(self.featureServerList, f"{self.FEATURESERVER_CLASS}.csv")
-        self.create_output_file(self.mapServerList, f"{self.MAPSERVER_CLASS}.csv")
-        self.create_output_file(self.layerList, f"{self.LAYER_CLASS}.csv")
-        self.create_output_file(self.serverList, f"{self.SERVER_CLASS}.csv")
-        self.create_output_file(self.fieldList, f"{self.FIELD_CLASS}.csv")
+        if self.folderList:
+            self.create_output_file(self.folderList, f"{self.FOLDER_CLASS}.csv")
+
+        if self.layerList:
+            self.create_output_file(self.layerList, f"{self.LAYER_CLASS}.csv")
+
+        if self.serverList:
+            self.create_output_file(self.serverList, f"{self.SERVER_CLASS}.csv")
+
+        if self.fieldList:
+            self.create_output_file(self.fieldList, f"{self.FIELD_CLASS}.csv")
+
+        if self.featureServerList:
+            self.create_output_file(self.featureServerList, f"{self.FEATURESERVER_CLASS}.csv")
+
+        if self.mapServerList:
+            self.create_output_file(self.mapServerList, f"{self.MAPSERVER_CLASS}.csv")
+
 
         # write to zip file
         zFileName = f"{self.output_folder}/{self.ZIPFILE_NAME}"
@@ -100,14 +112,18 @@ class CDGCWriter:
             f"{self.output_folder}/{self.SERVER_CLASS}.csv",
             f"{self.SERVER_CLASS}.csv",
         )
-        zipf.write(
-            f"{self.output_folder}/{self.FEATURESERVER_CLASS}.csv",
-            f"{self.FEATURESERVER_CLASS}.csv",
-        )
-        zipf.write(
-            f"{self.output_folder}/{self.MAPSERVER_CLASS}.csv",
-            f"{self.MAPSERVER_CLASS}.csv",
-        )
+
+        if self.featureServerList:
+            zipf.write(
+                f"{self.output_folder}/{self.FEATURESERVER_CLASS}.csv",
+                f"{self.FEATURESERVER_CLASS}.csv",
+            )
+        if self.mapServerList:
+            zipf.write(
+                f"{self.output_folder}/{self.MAPSERVER_CLASS}.csv",
+                f"{self.MAPSERVER_CLASS}.csv",
+            )
+
         zipf.write(
             f"{self.output_folder}/{self.LAYER_CLASS}.csv",
             f"{self.LAYER_CLASS}.csv",
