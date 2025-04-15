@@ -5,6 +5,23 @@
 ******************************************************************************
 
 
+v1.3 - April 10, 2025
+==================================
+** FIXED:
+    - Fixed URLs with Links that are generated for descriptions
+    - Fixed URLS not using https
+    - Removed developer comments
+
+** NEW:
+    - Add many new attributes to Services, Layers and Fields.
+    - Support for MapServer service.
+
+** UPDATES:
+    - Model updated to move Service objects to specific objects within ArcGis (FeatureServer, MapServer, etc).
+    - Rewrote file handing of cdgc_writer. Cleaner and easier to add attributes.
+    - Model package name was renamed to remove the version number in the classes.
+
+
 v1.2 - April 8, 2025
 ==================================
 ** FIXED:

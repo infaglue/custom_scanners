@@ -1,5 +1,5 @@
 {
-   "packageName":"arcgis.rest.customV4",
+   "packageName":"esri.arcgis.custom",
    "packageDescription":"ArcGIS model for rest objects",
    "packageLabel":"ArcGIS - Scanner",
    "deprecated":false,
@@ -14,6 +14,29 @@
          "isFirstClass":true,
          "superClasses":[
             "core.DataElement",
+            "core.IClass"
+         ],
+         "deprecated":false,
+         "isAbstract":false,
+         "cdc":true,
+         "indexType":"FULL",
+         "appendOnly":false,
+         "extensions":[
+
+         ],
+         "softDeleted":false,
+         "system":false,
+         "attributeInheritance":[
+
+         ]
+      },
+      {
+         "name":"Service",
+         "label":"Service",
+         "externalLabel":"Service",
+         "description":"Service",
+         "isFirstClass":true,
+         "superClasses":[
             "core.IClass"
          ],
          "deprecated":false,
@@ -54,11 +77,12 @@
          ]
       },
       {
-         "name":"Service",
-         "label":"Service",
-         "description":"A service within ArcGIS.  will contain layers/fields",
+         "name":"FeatureServer",
+         "label":"Feature Server",
+         "description":"Type of service provided by ArcGIS that allows you to serve vector feature data (and associated non-spatial tables) over the internet via API",
          "isFirstClass":true,
          "superClasses":[
+            "esri.arcgis.custom.Service",
             "core.IClassTechnical",
             "core.IClass"
          ],
@@ -122,6 +146,30 @@
          "attributeInheritance":[
 
          ]
+      },
+      {
+         "name":"MapServer",
+         "label":"Map Server",
+         "description":"A MapServer in ArcGIS is a service that delivers rendered map images",
+         "isFirstClass":true,
+         "superClasses":[
+            "esri.arcgis.custom.Service",
+            "core.IClassTechnical",
+            "core.IClass"
+         ],
+         "deprecated":false,
+         "isAbstract":false,
+         "cdc":true,
+         "indexType":"FULL",
+         "appendOnly":false,
+         "extensions":[
+
+         ],
+         "softDeleted":false,
+         "system":false,
+         "attributeInheritance":[
+
+         ]
       }
    ],
    "requiredPackages":[
@@ -131,10 +179,10 @@
       {
          "name":"LayerContainsField",
          "label":"LayerContainsField",
-         "fromClass":"arcgis.rest.customV4.Layer",
-         "toClass":"arcgis.rest.customV4.Field",
+         "fromClass":"esri.arcgis.custom.Layer",
+         "toClass":"esri.arcgis.custom.Field",
          "fromLabel":"Layer",
-         "toLabel":"Service",
+         "toLabel":"FeatureServer",
          "associationKinds":[
             "core.ParentChild",
             "core.IAssociation"
@@ -150,12 +198,12 @@
          "deleted":false
       },
       {
-         "name":"ServiceContainsLayer",
-         "label":"ServiceContainsLayer",
-         "fromClass":"arcgis.rest.customV4.Service",
-         "toClass":"arcgis.rest.customV4.Layer",
-         "fromLabel":"Layer",
-         "toLabel":"Service",
+         "name":"FeatureServerContainsLayer",
+         "label":"FeatureServerContainsLayer",
+         "fromClass":"esri.arcgis.custom.FeatureServer",
+         "toClass":"esri.arcgis.custom.Layer",
+         "fromLabel":"FeatureServer",
+         "toLabel":"Layer",
          "associationKinds":[
             "core.ParentChild",
             "core.IAssociation"
@@ -165,18 +213,39 @@
          "cdc":true,
          "unidirectional":false,
          "aggregate":false,
-         "description":"layers are contained within a service",
+         "description":"layers are contained within a FeatureServer",
+         "customizable":false,
+         "custom":false,
+         "deleted":false
+      },
+       {
+         "name":"MapServerContainsLayer",
+         "label":"MapServerContainsLayer",
+         "fromClass":"esri.arcgis.custom.MapServer",
+         "toClass":"esri.arcgis.custom.Layer",
+         "fromLabel":"MapServer",
+         "toLabel":"Layer",
+         "associationKinds":[
+            "core.ParentChild",
+            "core.IAssociation"
+         ],
+         "deprecated":false,
+         "projections":false,
+         "cdc":true,
+         "unidirectional":false,
+         "aggregate":false,
+         "description":"layers are contained within a FeatureServer",
          "customizable":false,
          "custom":false,
          "deleted":false
       },
       {
-         "name":"ServerContainsService",
-         "label":"ServerContainsService",
-         "fromClass":"arcgis.rest.customV4.Server",
-         "toClass":"arcgis.rest.customV4.Service",
+         "name":"ServerContainsFeatureServer",
+         "label":"ServerContainsFeatureServer",
+         "fromClass":"esri.arcgis.custom.Server",
+         "toClass":"esri.arcgis.custom.FeatureServer",
          "fromLabel":"Server",
-         "toLabel":"Service",
+         "toLabel":"FeatureServer",
          "associationKinds":[
             "core.ParentChild",
             "core.IAssociation"
@@ -192,12 +261,54 @@
          "deleted":false
       },
       {
-         "name":"FolderToService",
-         "label":"Folder to Service",
-         "fromClass":"arcgis.rest.customV4.Folder",
-         "toClass":"arcgis.rest.customV4.Service",
+         "name":"ServerContainsMapServer",
+         "label":"ServerContainsMapServer",
+         "fromClass":"esri.arcgis.custom.Server",
+         "toClass":"esri.arcgis.custom.MapServer",
+         "fromLabel":"Server",
+         "toLabel":"MapServer",
+         "associationKinds":[
+            "core.ParentChild",
+            "core.IAssociation"
+         ],
+         "deprecated":false,
+         "projections":false,
+         "cdc":true,
+         "unidirectional":false,
+         "aggregate":false,
+         "description":"Server provides many services",
+         "customizable":false,
+         "custom":false,
+         "deleted":false
+      },
+      {
+         "name":"FolderToFeatureServer",
+         "label":"Folder to FeatureServer",
+         "fromClass":"esri.arcgis.custom.Folder",
+         "toClass":"esri.arcgis.custom.FeatureServer",
          "fromLabel":"Folder",
-         "toLabel":"Service",
+         "toLabel":"FeatureServer",
+         "associationKinds":[
+            "core.ParentChild",
+            "core.IAssociation"
+         ],
+         "deprecated":false,
+         "projections":false,
+         "cdc":true,
+         "unidirectional":false,
+         "aggregate":false,
+         "description":"",
+         "customizable":false,
+         "custom":false,
+         "deleted":false
+      },
+      {
+         "name":"FolderToMapServer",
+         "label":"Folder to MapServer",
+         "fromClass":"esri.arcgis.custom.Folder",
+         "toClass":"esri.arcgis.custom.MapServer",
+         "fromLabel":"Folder",
+         "toLabel":"MapServer",
          "associationKinds":[
             "core.ParentChild",
             "core.IAssociation"
@@ -215,8 +326,8 @@
       {
          "name":"ServerToFolder",
          "label":"ServerToFolder",
-         "fromClass":"arcgis.rest.customV4.Server",
-         "toClass":"arcgis.rest.customV4.Folder",
+         "fromClass":"esri.arcgis.custom.Server",
+         "toClass":"esri.arcgis.custom.Folder",
          "fromLabel":"Server",
          "toLabel":"Folder",
          "associationKinds":[
@@ -347,13 +458,407 @@
          "customizations":[
             "NONE"
          ]
+      },
+      {
+         "name":"hasArchivedData",
+         "label":"Has Archived Data",
+         "dataType":"core.Boolean",
+         "description":"Has Archived Data",
+         "multivalued":false,
+         "deprecated":false,
+         "derived":false,
+         "data":false,
+         "defaultValues":[
+         ],
+         "custom":false,
+         "isSystem":false,
+         "embedded":false,
+         "reference":"",
+         "referencedAttributes":[
+         ],
+         "searchConfiguration":{
+         },
+         "projectionExpressions":[
+         ],
+         "deleted":false,
+         "customizations":[
+            "NONE"
+         ]
+      },
+      {
+         "name":"supportsQueryDataElements",
+         "label":"Supports Query Data Elements",
+         "dataType":"core.Boolean",
+         "description":"Supports Query Data Elements",
+         "multivalued":false,
+         "deprecated":false,
+         "derived":false,
+         "data":false,
+         "defaultValues":[
+         ],
+         "custom":false,
+         "isSystem":false,
+         "embedded":false,
+         "reference":"",
+         "referencedAttributes":[
+         ],
+         "searchConfiguration":{
+         },
+         "projectionExpressions":[
+         ],
+         "deleted":false,
+         "customizations":[
+            "NONE"
+         ]
+      },
+      {
+         "name":"units",
+         "label":"Units",
+         "dataType":"core.String",
+         "description":"Units",
+         "multivalued":false,
+         "deprecated":false,
+         "derived":false,
+         "data":false,
+         "defaultValues":[
+         ],
+         "custom":false,
+         "isSystem":false,
+         "embedded":false,
+         "reference":"",
+         "referencedAttributes":[
+         ],
+         "searchConfiguration":{
+         },
+         "projectionExpressions":[
+         ],
+         "deleted":false,
+         "customizations":[
+            "NONE"
+         ]
+      },
+      {
+         "name":"supportedQueryFormats",
+         "label":"Supported Query Formats",
+         "dataType":"core.String",
+         "description":"Supported Query Formats",
+         "multivalued":false,
+         "deprecated":false,
+         "derived":false,
+         "data":false,
+         "defaultValues":[
+         ],
+         "custom":false,
+         "isSystem":false,
+         "embedded":false,
+         "reference":"",
+         "referencedAttributes":[
+         ],
+         "searchConfiguration":{
+         },
+         "projectionExpressions":[
+         ],
+         "deleted":false,
+         "customizations":[
+            "NONE"
+         ]
+      },
+      {
+         "name":"geometryType",
+         "label":"Geometry Type",
+         "dataType":"core.String",
+         "description":"Geometry Type",
+         "multivalued":false,
+         "deprecated":false,
+         "derived":false,
+         "data":false,
+         "defaultValues":[
+         ],
+         "custom":false,
+         "isSystem":false,
+         "embedded":false,
+         "reference":"",
+         "referencedAttributes":[
+         ],
+         "searchConfiguration":{
+         },
+         "projectionExpressions":[
+         ],
+         "deleted":false,
+         "customizations":[
+            "NONE"
+         ]
+      },
+      {
+         "name":"supportsAdvancedQueries",
+         "label":"Supports Advanced Queries",
+         "dataType":"core.Boolean",
+         "description":"Supports Advanced Queries",
+         "multivalued":false,
+         "deprecated":false,
+         "derived":false,
+         "data":false,
+         "defaultValues":[
+         ],
+         "custom":false,
+         "isSystem":false,
+         "embedded":false,
+         "reference":"",
+         "referencedAttributes":[
+         ],
+         "searchConfiguration":{
+         },
+         "projectionExpressions":[
+         ],
+         "deleted":false,
+         "customizations":[
+            "NONE"
+         ]
+      },
+      {
+         "name":"supportsStatistics",
+         "label":"Supports Statistics",
+         "dataType":"core.Boolean",
+         "description":"Supports Statistics",
+         "multivalued":false,
+         "deprecated":false,
+         "derived":false,
+         "data":false,
+         "defaultValues":[
+         ],
+         "custom":false,
+         "isSystem":false,
+         "embedded":false,
+         "reference":"",
+         "referencedAttributes":[
+         ],
+         "searchConfiguration":{
+         },
+         "projectionExpressions":[
+         ],
+         "deleted":false,
+         "customizations":[
+            "NONE"
+         ]
+      },
+      {
+         "name":"alias",
+         "label":"Alias",
+         "dataType":"core.String",
+         "description":"Alias",
+         "multivalued":false,
+         "deprecated":false,
+         "derived":false,
+         "data":false,
+         "defaultValues":[
+         ],
+         "custom":false,
+         "isSystem":false,
+         "embedded":false,
+         "reference":"",
+         "referencedAttributes":[
+         ],
+         "searchConfiguration":{
+         },
+         "projectionExpressions":[
+         ],
+         "deleted":false,
+         "customizations":[
+            "NONE"
+         ]
+      },
+      {
+         "name":"domain",
+         "label":"Domain",
+         "dataType":"core.String",
+         "description":"Domain",
+         "multivalued":false,
+         "deprecated":false,
+         "derived":false,
+         "data":false,
+         "defaultValues":[
+         ],
+         "custom":false,
+         "isSystem":false,
+         "embedded":false,
+         "reference":"",
+         "referencedAttributes":[
+         ],
+         "searchConfiguration":{
+         },
+         "projectionExpressions":[
+         ],
+         "deleted":false,
+         "customizations":[
+            "NONE"
+         ]
+      },
+      {
+         "name":"editable",
+         "label":"Editable",
+         "dataType":"core.Boolean",
+         "description":"Editable",
+         "multivalued":false,
+         "deprecated":false,
+         "derived":false,
+         "data":false,
+         "defaultValues":[
+         ],
+         "custom":false,
+         "isSystem":false,
+         "embedded":false,
+         "reference":"",
+         "referencedAttributes":[
+         ],
+         "searchConfiguration":{
+         },
+         "projectionExpressions":[
+         ],
+         "deleted":false,
+         "customizations":[
+            "NONE"
+         ]
+      },
+      {
+         "name":"nullable",
+         "label":"Nullable",
+         "dataType":"core.Boolean",
+         "description":"Nullable",
+         "multivalued":false,
+         "deprecated":false,
+         "derived":false,
+         "data":false,
+         "defaultValues":[
+         ],
+         "custom":false,
+         "isSystem":false,
+         "embedded":false,
+         "reference":"",
+         "referencedAttributes":[
+         ],
+         "searchConfiguration":{
+         },
+         "projectionExpressions":[
+         ],
+         "deleted":false,
+         "customizations":[
+            "NONE"
+         ]
+      },
+      {
+         "name":"defaultValue",
+         "label":"Default Value",
+         "dataType":"core.String",
+         "description":"Default Value",
+         "multivalued":false,
+         "deprecated":false,
+         "derived":false,
+         "data":false,
+         "defaultValues":[
+         ],
+         "custom":false,
+         "isSystem":false,
+         "embedded":false,
+         "reference":"",
+         "referencedAttributes":[
+         ],
+         "searchConfiguration":{
+         },
+         "projectionExpressions":[
+         ],
+         "deleted":false,
+         "customizations":[
+            "NONE"
+         ]
+      },
+      {
+         "name":"modelName",
+         "label":"Model Name",
+         "dataType":"core.String",
+         "description":"Model Name",
+         "multivalued":false,
+         "deprecated":false,
+         "derived":false,
+         "data":false,
+         "defaultValues":[
+         ],
+         "custom":false,
+         "isSystem":false,
+         "embedded":false,
+         "reference":"",
+         "referencedAttributes":[
+         ],
+         "searchConfiguration":{
+         },
+         "projectionExpressions":[
+         ],
+         "deleted":false,
+         "customizations":[
+            "NONE"
+         ]
+      },
+      {
+         "name":"length",
+         "label":"Length",
+         "dataType":"core.Integer",
+         "description":"Length",
+         "multivalued":false,
+         "deprecated":false,
+         "derived":false,
+         "data":false,
+         "defaultValues":[
+         ],
+         "custom":false,
+         "isSystem":false,
+         "embedded":false,
+         "reference":"",
+         "referencedAttributes":[
+         ],
+         "searchConfiguration":{
+         },
+         "projectionExpressions":[
+         ],
+         "deleted":false,
+         "customizations":[
+            "NONE"
+         ]
+      },
+      {
+         "name": "restServicesLink",
+         "label": "ArcGIS REST Services Link",
+         "dataType": "core.LinkType",
+         "description": "ArcGIS REST Services Link",
+         "multivalued": true,
+         "deprecated": false,
+         "derived": false,
+         "data": false,
+         "defaultValues": [
+         ],
+         "custom": false,
+         "isSystem": false,
+         "embedded": true,
+         "reference": "",
+         "referencedAttributes": [
+         ],
+         "searchConfiguration": {
+            "suggestable": false,
+            "aggregatable": false,
+            "sortable": false,
+            "attributeType": "SEARCHABLE"
+         },
+         "projectionExpressions": [
+         ],
+         "deleted": false,
+         "customizations": [
+            "NONE"
+         ]
       }
    ],
    "classAttributes":[
       {
-         "className":"arcgis.rest.customV4.Field",
+         "className":"esri.arcgis.custom.Field",
          "name":"Type",
-         "attributeName":"arcgis.rest.customV4.Type",
+         "attributeName":"esri.arcgis.custom.Type",
          "isRequired":false,
          "isCuratable":false,
          "deprecated":false,
@@ -371,9 +876,9 @@
          "deleted":false
       },
        {
-         "className":"arcgis.rest.customV4.Service",
+         "className":"esri.arcgis.custom.FeatureServer",
          "name":"HasVersionedData",
-         "attributeName":"arcgis.rest.customV4.HasVersionedData",
+         "attributeName":"esri.arcgis.custom.HasVersionedData",
          "isRequired":false,
          "isCuratable":false,
          "deprecated":false,
@@ -391,9 +896,9 @@
          "deleted":false
       },
        {
-         "className":"arcgis.rest.customV4.Service",
+         "className":"esri.arcgis.custom.FeatureServer",
          "name":"MaxRecordCount",
-         "attributeName":"arcgis.rest.customV4.MaxRecordCount",
+         "attributeName":"esri.arcgis.custom.MaxRecordCount",
          "isRequired":false,
          "isCuratable":false,
          "deprecated":false,
@@ -411,9 +916,9 @@
          "deleted":false
       },
        {
-         "className":"arcgis.rest.customV4.Layer",
+         "className":"esri.arcgis.custom.Layer",
          "name":"MaxRecordCount",
-         "attributeName":"arcgis.rest.customV4.MaxRecordCount",
+         "attributeName":"esri.arcgis.custom.MaxRecordCount",
          "isRequired":false,
          "isCuratable":false,
          "deprecated":false,
@@ -431,9 +936,9 @@
          "deleted":false
       },
        {
-         "className":"arcgis.rest.customV4.Service",
+         "className":"esri.arcgis.custom.FeatureServer",
          "name":"Copyright",
-         "attributeName":"arcgis.rest.customV4.Copyright",
+         "attributeName":"esri.arcgis.custom.Copyright",
          "isRequired":false,
          "isCuratable":false,
          "deprecated":false,
@@ -451,9 +956,569 @@
          "deleted":false
       },
        {
-         "className":"arcgis.rest.customV4.Layer",
+         "className":"esri.arcgis.custom.Layer",
          "name":"Copyright",
-         "attributeName":"arcgis.rest.customV4.Copyright",
+         "attributeName":"esri.arcgis.custom.Copyright",
+         "isRequired":false,
+         "isCuratable":false,
+         "deprecated":false,
+         "followers":[
+
+         ],
+         "isHidden":false,
+         "cdc":false,
+         "custom":false,
+         "gatherStats":false,
+         "materialized":false,
+         "conditions":[
+
+         ],
+         "deleted":false
+      },
+       {
+         "className":"esri.arcgis.custom.Layer",
+         "name":"hasArchivedData",
+         "attributeName":"esri.arcgis.custom.hasArchivedData",
+         "isRequired":false,
+         "isCuratable":false,
+         "deprecated":false,
+         "followers":[
+
+         ],
+         "isHidden":false,
+         "cdc":false,
+         "custom":false,
+         "gatherStats":false,
+         "materialized":false,
+         "conditions":[
+
+         ],
+         "deleted":false
+      },
+       {
+         "className":"esri.arcgis.custom.FeatureServer",
+         "name":"hasArchivedData",
+         "attributeName":"esri.arcgis.custom.hasArchivedData",
+         "isRequired":false,
+         "isCuratable":false,
+         "deprecated":false,
+         "followers":[
+
+         ],
+         "isHidden":false,
+         "cdc":false,
+         "custom":false,
+         "gatherStats":false,
+         "materialized":false,
+         "conditions":[
+
+         ],
+         "deleted":false
+      },
+       {
+         "className":"esri.arcgis.custom.FeatureServer",
+         "name":"supportedQueryFormats",
+         "attributeName":"esri.arcgis.custom.supportedQueryFormats",
+         "isRequired":false,
+         "isCuratable":false,
+         "deprecated":false,
+         "followers":[
+
+         ],
+         "isHidden":false,
+         "cdc":false,
+         "custom":false,
+         "gatherStats":false,
+         "materialized":false,
+         "conditions":[
+
+         ],
+         "deleted":false
+      },
+       {
+         "className":"esri.arcgis.custom.FeatureServer",
+         "name":"supportsQueryDataElements",
+         "attributeName":"esri.arcgis.custom.supportsQueryDataElements",
+         "isRequired":false,
+         "isCuratable":false,
+         "deprecated":false,
+         "followers":[
+
+         ],
+         "isHidden":false,
+         "cdc":false,
+         "custom":false,
+         "gatherStats":false,
+         "materialized":false,
+         "conditions":[
+
+         ],
+         "deleted":false
+      },
+       {
+         "className":"esri.arcgis.custom.FeatureServer",
+         "name":"units",
+         "attributeName":"esri.arcgis.custom.units",
+         "isRequired":false,
+         "isCuratable":false,
+         "deprecated":false,
+         "followers":[
+
+         ],
+         "isHidden":false,
+         "cdc":false,
+         "custom":false,
+         "gatherStats":false,
+         "materialized":false,
+         "conditions":[
+
+         ],
+         "deleted":false
+      },
+       {
+         "className":"esri.arcgis.custom.Layer",
+         "name":"supportedQueryFormats",
+         "attributeName":"esri.arcgis.custom.supportedQueryFormats",
+         "isRequired":false,
+         "isCuratable":false,
+         "deprecated":false,
+         "followers":[
+
+         ],
+         "isHidden":false,
+         "cdc":false,
+         "custom":false,
+         "gatherStats":false,
+         "materialized":false,
+         "conditions":[
+
+         ],
+         "deleted":false
+      },
+       {
+         "className":"esri.arcgis.custom.Layer",
+         "name":"Type",
+         "attributeName":"esri.arcgis.custom.Type",
+         "isRequired":false,
+         "isCuratable":false,
+         "deprecated":false,
+         "followers":[
+
+         ],
+         "isHidden":false,
+         "cdc":false,
+         "custom":false,
+         "gatherStats":false,
+         "materialized":false,
+         "conditions":[
+
+         ],
+         "deleted":false
+      },
+       {
+         "className":"esri.arcgis.custom.FeatureServer",
+         "name":"Type",
+         "attributeName":"esri.arcgis.custom.Type",
+         "isRequired":false,
+         "isCuratable":false,
+         "deprecated":false,
+         "followers":[
+
+         ],
+         "isHidden":false,
+         "cdc":false,
+         "custom":false,
+         "gatherStats":false,
+         "materialized":false,
+         "conditions":[
+
+         ],
+         "deleted":false
+      },
+       {
+         "className":"esri.arcgis.custom.Layer",
+         "name":"geometryType",
+         "attributeName":"esri.arcgis.custom.geometryType",
+         "isRequired":false,
+         "isCuratable":false,
+         "deprecated":false,
+         "followers":[
+
+         ],
+         "isHidden":false,
+         "cdc":false,
+         "custom":false,
+         "gatherStats":false,
+         "materialized":false,
+         "conditions":[
+
+         ],
+         "deleted":false
+      },
+       {
+         "className":"esri.arcgis.custom.Layer",
+         "name":"supportsAdvancedQueries",
+         "attributeName":"esri.arcgis.custom.supportsAdvancedQueries",
+         "isRequired":false,
+         "isCuratable":false,
+         "deprecated":false,
+         "followers":[
+
+         ],
+         "isHidden":false,
+         "cdc":false,
+         "custom":false,
+         "gatherStats":false,
+         "materialized":false,
+         "conditions":[
+
+         ],
+         "deleted":false
+      },
+       {
+         "className":"esri.arcgis.custom.Layer",
+         "name":"supportsStatistics",
+         "attributeName":"esri.arcgis.custom.supportsStatistics",
+         "isRequired":false,
+         "isCuratable":false,
+         "deprecated":false,
+         "followers":[
+
+         ],
+         "isHidden":false,
+         "cdc":false,
+         "custom":false,
+         "gatherStats":false,
+         "materialized":false,
+         "conditions":[
+
+         ],
+         "deleted":false
+      },
+       {
+         "className":"esri.arcgis.custom.Field",
+         "name":"alias",
+         "attributeName":"esri.arcgis.custom.alias",
+         "isRequired":false,
+         "isCuratable":false,
+         "deprecated":false,
+         "followers":[
+
+         ],
+         "isHidden":false,
+         "cdc":false,
+         "custom":false,
+         "gatherStats":false,
+         "materialized":false,
+         "conditions":[
+
+         ],
+         "deleted":false
+      },
+       {
+         "className":"esri.arcgis.custom.Field",
+         "name":"domain",
+         "attributeName":"esri.arcgis.custom.domain",
+         "isRequired":false,
+         "isCuratable":false,
+         "deprecated":false,
+         "followers":[
+
+         ],
+         "isHidden":false,
+         "cdc":false,
+         "custom":false,
+         "gatherStats":false,
+         "materialized":false,
+         "conditions":[
+
+         ],
+         "deleted":false
+      },
+       {
+         "className":"esri.arcgis.custom.Field",
+         "name":"editable",
+         "attributeName":"esri.arcgis.custom.editable",
+         "isRequired":false,
+         "isCuratable":false,
+         "deprecated":false,
+         "followers":[
+
+         ],
+         "isHidden":false,
+         "cdc":false,
+         "custom":false,
+         "gatherStats":false,
+         "materialized":false,
+         "conditions":[
+
+         ],
+         "deleted":false
+      },
+       {
+         "className":"esri.arcgis.custom.Field",
+         "name":"nullable",
+         "attributeName":"esri.arcgis.custom.nullable",
+         "isRequired":false,
+         "isCuratable":false,
+         "deprecated":false,
+         "followers":[
+
+         ],
+         "isHidden":false,
+         "cdc":false,
+         "custom":false,
+         "gatherStats":false,
+         "materialized":false,
+         "conditions":[
+
+         ],
+         "deleted":false
+      },
+       {
+         "className":"esri.arcgis.custom.Field",
+         "name":"defaultValue",
+         "attributeName":"esri.arcgis.custom.defaultValue",
+         "isRequired":false,
+         "isCuratable":false,
+         "deprecated":false,
+         "followers":[
+
+         ],
+         "isHidden":false,
+         "cdc":false,
+         "custom":false,
+         "gatherStats":false,
+         "materialized":false,
+         "conditions":[
+
+         ],
+         "deleted":false
+      },
+       {
+         "className":"esri.arcgis.custom.Field",
+         "name":"modelName",
+         "attributeName":"esri.arcgis.custom.modelName",
+         "isRequired":false,
+         "isCuratable":false,
+         "deprecated":false,
+         "followers":[
+
+         ],
+         "isHidden":false,
+         "cdc":false,
+         "custom":false,
+         "gatherStats":false,
+         "materialized":false,
+         "conditions":[
+
+         ],
+         "deleted":false
+      },
+       {
+         "className":"esri.arcgis.custom.Field",
+         "name":"length",
+         "attributeName":"esri.arcgis.custom.length",
+         "isRequired":false,
+         "isCuratable":false,
+         "deprecated":false,
+         "followers":[
+
+         ],
+         "isHidden":false,
+         "cdc":false,
+         "custom":false,
+         "gatherStats":false,
+         "materialized":false,
+         "conditions":[
+
+         ],
+         "deleted":false
+      },
+       {
+         "className":"esri.arcgis.custom.MapServer",
+         "name":"HasVersionedData",
+         "attributeName":"esri.arcgis.custom.HasVersionedData",
+         "isRequired":false,
+         "isCuratable":false,
+         "deprecated":false,
+         "followers":[
+
+         ],
+         "isHidden":false,
+         "cdc":false,
+         "custom":false,
+         "gatherStats":false,
+         "materialized":false,
+         "conditions":[
+
+         ],
+         "deleted":false
+      },
+       {
+         "className":"esri.arcgis.custom.MapServer",
+         "name":"MaxRecordCount",
+         "attributeName":"esri.arcgis.custom.MaxRecordCount",
+         "isRequired":false,
+         "isCuratable":false,
+         "deprecated":false,
+         "followers":[
+
+         ],
+         "isHidden":false,
+         "cdc":false,
+         "custom":false,
+         "gatherStats":false,
+         "materialized":false,
+         "conditions":[
+
+         ],
+         "deleted":false
+      },
+	  {
+         "className":"esri.arcgis.custom.MapServer",
+         "name":"Copyright",
+         "attributeName":"esri.arcgis.custom.Copyright",
+         "isRequired":false,
+         "isCuratable":false,
+         "deprecated":false,
+         "followers":[
+
+         ],
+         "isHidden":false,
+         "cdc":false,
+         "custom":false,
+         "gatherStats":false,
+         "materialized":false,
+         "conditions":[
+
+         ],
+         "deleted":false
+      },
+	  {
+         "className":"esri.arcgis.custom.MapServer",
+         "name":"hasArchivedData",
+         "attributeName":"esri.arcgis.custom.hasArchivedData",
+         "isRequired":false,
+         "isCuratable":false,
+         "deprecated":false,
+         "followers":[
+
+         ],
+         "isHidden":false,
+         "cdc":false,
+         "custom":false,
+         "gatherStats":false,
+         "materialized":false,
+         "conditions":[
+
+         ],
+         "deleted":false
+      },
+       {
+         "className":"esri.arcgis.custom.MapServer",
+         "name":"supportedQueryFormats",
+         "attributeName":"esri.arcgis.custom.supportedQueryFormats",
+         "isRequired":false,
+         "isCuratable":false,
+         "deprecated":false,
+         "followers":[
+
+         ],
+         "isHidden":false,
+         "cdc":false,
+         "custom":false,
+         "gatherStats":false,
+         "materialized":false,
+         "conditions":[
+
+         ],
+         "deleted":false
+      },
+       {
+         "className":"esri.arcgis.custom.MapServer",
+         "name":"supportsQueryDataElements",
+         "attributeName":"esri.arcgis.custom.supportsQueryDataElements",
+         "isRequired":false,
+         "isCuratable":false,
+         "deprecated":false,
+         "followers":[
+
+         ],
+         "isHidden":false,
+         "cdc":false,
+         "custom":false,
+         "gatherStats":false,
+         "materialized":false,
+         "conditions":[
+
+         ],
+         "deleted":false
+      },
+       {
+         "className":"esri.arcgis.custom.MapServer",
+         "name":"units",
+         "attributeName":"esri.arcgis.custom.units",
+         "isRequired":false,
+         "isCuratable":false,
+         "deprecated":false,
+         "followers":[
+
+         ],
+         "isHidden":false,
+         "cdc":false,
+         "custom":false,
+         "gatherStats":false,
+         "materialized":false,
+         "conditions":[
+
+         ],
+         "deleted":false
+      },
+       {
+         "className":"esri.arcgis.custom.MapServer",
+         "name":"Type",
+         "attributeName":"esri.arcgis.custom.Type",
+         "isRequired":false,
+         "isCuratable":false,
+         "deprecated":false,
+         "followers":[
+
+         ],
+         "isHidden":false,
+         "cdc":false,
+         "custom":false,
+         "gatherStats":false,
+         "materialized":false,
+         "conditions":[
+
+         ],
+         "deleted":false
+      },
+       {
+         "className":"esri.arcgis.custom.MapServer",
+         "name":"restServicesLink",
+         "attributeName":"esri.arcgis.custom.restServicesLink",
+         "isRequired":false,
+         "isCuratable":false,
+         "deprecated":false,
+         "followers":[
+
+         ],
+         "isHidden":false,
+         "cdc":false,
+         "custom":false,
+         "gatherStats":false,
+         "materialized":false,
+         "conditions":[
+
+         ],
+         "deleted":false
+      },
+       {
+         "className":"esri.arcgis.custom.FeatureServer",
+         "name":"restServicesLink",
+         "attributeName":"esri.arcgis.custom.restServicesLink",
          "isRequired":false,
          "isCuratable":false,
          "deprecated":false,
