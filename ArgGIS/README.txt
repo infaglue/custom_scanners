@@ -16,7 +16,6 @@ DISCLAIMER:
 
     If you run into any bugs, please feel free to send me a email and I will try to help, but no promises. bshepherd AT informatica DOT com
 
-
 ******************************************************************************
 *
 *                  Version History
