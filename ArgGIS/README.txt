@@ -4,6 +4,25 @@
 *
 ******************************************************************************
 
+DISCLAIMER:
+
+    This script is provided "AS IS" without any guarantees or warranty.
+    Informatica and its affiliates do not provide any support or maintenance for this script.
+    This is not an official Informatica product.
+    Use this script at your own risk. Informatica shall not be liable for any damages,
+    losses, or issues arising from the use or modification of this script.
+
+    By using this script, you acknowledge and accept these terms.
+
+    If you run into any bugs, please feel free to send me a email and I will try to help, but no promises. bshepherd AT informatica DOT com
+
+
+******************************************************************************
+*
+*                  Version History
+*
+******************************************************************************
+
 v1.3 - April 10, 2025
 ==================================
 ** FIXED:
@@ -91,3 +110,18 @@ v1 - NOVEMBER 14, 2022
     4. Upload the zip file
     5. Do any other standard scanner configuration (Glossary, Classification, etc) and save and execute.
     6. In a production setting, you'd want have the scanner setup to look for the zip file on a secure agent of your choosing, this way the entire process can be scheduled and automated.
+
+
+******************************************************************************
+*
+*                   Limitations
+*
+******************************************************************************
+
+This script was created as a "art of the possible" to jumpstart what customers and partners can do in order to catalog ArcGIS metadata. This script does have limitations, but any of them can be solved with some extra effort
+
+    1. The Rest Services pages need to be opened or accessible without a username/password.
+    2. The scanner does not ingest metadata for all services. The ones chosen were what Esri told me most customers create and may extract data from.
+    3. The scans can be slow for very large ArcGIS systems. I've seen some extracts take 2 to 3 hours. Performance was never a consideration for this script
+    4. No advanced features -- like the ability to apply filters.
+    5. Not all attributes/properties are extracted and added to CDGC. Fixable by updating the Model and script to write the metadata out to the CSV files.
